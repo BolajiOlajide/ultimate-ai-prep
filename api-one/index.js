@@ -4,7 +4,10 @@ const config = require('lazy-config');
 
 const app = express();
 
-// app.listen()
+app.get('/', (_, res) => {
+  return res.json({ message: 'Api One is live!' });
+});
+
 app.listen(config.app.port, (err) => {
   if (err) {
     console.log(`Error starting app.\n${err.message}`);
