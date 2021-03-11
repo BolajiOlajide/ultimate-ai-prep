@@ -1,8 +1,10 @@
 {
-  "name": "ultimate-ai-prep",
-  "version": "1.0.0",
-  "main": "index.js",
   "repository": "git@github.com:BolajiOlajide/ultimate-ai-prep.git",
   "author": "Bolaji Olajide",
-  "license": "MIT"
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "api-one",
+    "api-two"
+  ]
 }
