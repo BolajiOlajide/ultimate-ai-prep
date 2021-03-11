@@ -1,8 +1,14 @@
 const express = require('express');
-const d = require('dotenv');
+const config = require('lazy-config');
 
 
 const app = express();
 
 // app.listen()
-console.log(app, d)
+app.listen(config.app.port, (err) => {
+  if (err) {
+    console.log(`Error starting app.\n${err.message}`);
+  } else {
+    console.log(`Starting app on PORT ${config.app.port}`);
+  }
+});
