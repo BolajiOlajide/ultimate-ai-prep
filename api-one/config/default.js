@@ -1,4 +1,6 @@
-require('dotenv').config();
+require('dotenv').config({
+  path: '../.env'
+});
 const { getEnvVar } = require('env-utils');
 
 
@@ -6,7 +8,7 @@ const lazyGetEnvVar = (...args) => () => getEnvVar(...args);
 
 module.exports = {
   app: {
-    port: lazyGetEnvVar('PORT', { devDefault: '8100' })
+    port: lazyGetEnvVar('API_ONE_PORT', { devDefault: '8100' })
   },
 
   intent: {
