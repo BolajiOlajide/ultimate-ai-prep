@@ -21,8 +21,8 @@ exports.fetchReply = async (req, res) => {
   try {
     const { name } = req.body;
 
-    const reply = new Reply.findOne({ intent: name });
-    const response = reply ? reply.response || 'I dont understand your query. Please try again.';
+    const reply = await Reply.findOne({ intent: name });
+    const response = reply ? reply.response : 'I dont understand your query. Please try again.';
 
     return respond(res, response, 200);
   } catch (error) {

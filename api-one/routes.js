@@ -10,6 +10,7 @@ exports.getReply = async (req, res) => {
     const { message } = req.body;
 
     const intentUrl = `${config.intent.baseUrl}/intents`;
+    const replyUrl = `${config.app.replyServerBaseUrl}/reply`;
     const conversationId = nanoid();
 
     const response = await fetch(intentUrl, {
@@ -24,6 +25,11 @@ exports.getReply = async (req, res) => {
         'Authorization': config.intent.token
       }
     });
+
+    if (!response.ok) {
+      return respond(res, 'An error occurred while fetching the intent.', 400);
+    }
+
     const { intents } = await response.json();
 
     // I am assuming that the first intent is always going to have
@@ -36,11 +42,25 @@ exports.getReply = async (req, res) => {
       name: 'Greeting'
     }
 
-    return respond(res, intentToSend, 200);
+    const replyResponse = await fetch(replyUrl, {
+      method: 'POST',
+      body: JSON.stringify(intentToSend),
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+
+    if (!replyResponse.ok) {
+      return respond(res, 'An error occurred while fetching the reply.', 400);
+    }
+
+    const replyData = await replyResponse.json();
+
+    return respond(res, replyData.data, 200);
   } catch (error) {
     // logging the error message so we can trace logs for use, this should
     // ideally be substituted for an actually logger like winston
-    console.log(error.message);
+    console.log(error);
     return respond(res, 'An error occurred while fetching intent.', 400)
   }
 };
