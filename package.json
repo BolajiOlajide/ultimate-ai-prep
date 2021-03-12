@@ -18,5 +18,8 @@
   },
   "scripts": {
     "start": "./start.sh"
+  },
+  "devDependencies": {
+    "mocha": "^8.3.1"
   }
 }
