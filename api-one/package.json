@@ -5,6 +5,6 @@
   "license": "MIT",
   "dependencies": {
     "nanoid": "^3.1.21",
-    "wretch": "^1.7.4"
+    "node-fetch": "^2.6.1"
   }
 }

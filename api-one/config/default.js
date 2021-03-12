@@ -10,6 +10,7 @@ module.exports = {
   },
 
   intent: {
-    baseUrl: lazyGetEnvVar('INTENT_API_BASE_URL', { optional: false })
+    baseUrl: lazyGetEnvVar('INTENT_API_BASE_URL', { optional: false }),
+    token: lazyGetEnvVar('INTENT_API_TOKEN', { optional: false })
   }
 };
