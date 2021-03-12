@@ -17,7 +17,21 @@ exports.createReply = async (req, res) => {
   }
 };
 
-exports.fetchReply = async (req, res) => {};
+exports.fetchReply = async (req, res) => {
+  try {
+    const { name } = req.body;
+
+    const reply = new Reply.findOne({ intent: name });
+    const response = reply ? reply.response || 'I dont understand your query. Please try again.';
+
+    return respond(res, response, 200);
+  } catch (error) {
+    // logging the error message so we can trace logs for use, this should
+    // ideally be substituted for an actually logger like winston
+    console.log(error.message);
+    return respond(res, 'An error occurred while creating this reply.', 400)
+  }
+};
 
 exports.deleteReply = async (req, res) => {
   try {
