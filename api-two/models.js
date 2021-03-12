@@ -22,4 +22,4 @@ const ReplySchema = new Schema(
   },
 );
 
-module.exports = model('replies', ReplySchema);
+module.exports.Reply = model('replies', ReplySchema);
