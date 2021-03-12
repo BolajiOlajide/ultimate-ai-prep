@@ -1,9 +1,13 @@
 const express = require('express');
 const morgan = require('morgan');
-const { json } = require('body-parser')
+const { json } = require('body-parser');
+
+const db = require('./db');
 
 
 const app = express();
+
+db.connect();
 
 app.use(morgan('combined'));
 app.use(json());
