@@ -6,7 +6,8 @@ const lazyGetEnvVar = (...args) => () => getEnvVar(...args);
 
 module.exports = {
   app: {
-    port: lazyGetEnvVar('API_ONE_PORT', { devDefault: '8100' })
+    port: lazyGetEnvVar('API_ONE_PORT', { devDefault: '8100' }),
+    replyServerBaseUrl: lazyGetEnvVar('REPLY_SERVER_BASE_URL', { optional: false })
   },
 
   intent: {

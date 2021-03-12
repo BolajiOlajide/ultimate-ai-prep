@@ -1,12 +1,6 @@
-const express = require('express');
 const config = require('lazy-config');
 
-
-const app = express();
-
-app.get('/', (_, res) => {
-  return res.json({ message: 'Api Two is live!' });
-});
+const app = require('./app');
 
 app.listen(config.app.port, (err) => {
   if (err) {
