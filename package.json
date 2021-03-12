@@ -19,7 +19,8 @@
     "nodemon": "^2.0.7"
   },
   "scripts": {
-    "start": "./start.sh"
+    "start": "./start.sh",
+    "seed": "cd api-two && node seed.js && cd -"
   },
   "devDependencies": {
     "mocha": "^8.3.1"
