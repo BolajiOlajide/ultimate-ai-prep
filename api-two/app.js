@@ -29,7 +29,7 @@ app.get('/', (_, res) => {
 
 app.post('/reply', validator(getReplySchema), fetchReply);
 app.post('/reply/create',validator(createReplySchema) , createReply);
-app.delete('/reply', validator(deleteReplySchema), deleteReply);
+app.delete('/reply/:replyId', validator(deleteReplySchema), deleteReply);
 
 app.use((err, req, res, next) => {
   console.log("err > ", err.message);

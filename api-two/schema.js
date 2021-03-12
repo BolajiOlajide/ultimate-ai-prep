@@ -16,6 +16,6 @@ exports.createReplySchema = {
 
 exports.deleteReplySchema = {
   params: Joi.object({
-    replyId: Joi.number().integer().positive().required(),
+    replyId: Joi.string().trim().required(),
   }),
 };
