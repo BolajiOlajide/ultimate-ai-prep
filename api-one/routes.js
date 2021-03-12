@@ -5,12 +5,9 @@ const { nanoid } = require('nanoid');
 const respond = require('../utils/respond');
 
 
-exports.getIntentRouter = async (req, res) => {
+exports.getReply = async (req, res) => {
   try {
     const { message } = req.body;
-    if (!message) {
-      return respond(res, 'The message field is required.', 422);
-    }
 
     const intentUrl = `${config.intent.baseUrl}/intents`;
     const conversationId = nanoid();
