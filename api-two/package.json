@@ -5,5 +5,8 @@
   "license": "MIT",
   "dependencies": {
     "mongoose": "^5.12.0"
+  },
+  "scripts": {
+    "test": "NODE_ENV=testing _mocha -- './tests/tests.spec.js' --exit"
   }
 }

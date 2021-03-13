@@ -1,0 +1,13 @@
+{
+  "diff": true,
+  "extension": ["spec.js"],
+  "opts": false,
+  "package": "./package.json",
+  "reporter": "spec",
+  "slow": 75,
+  "timeout": 5000,
+  "ui": "bdd",
+  "watch-files": ["**/tests/**/*.spec.js"],
+  "watch-ignore": ["node_modules"],
+  "file": ["tests/setup.js"]
+}

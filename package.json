@@ -19,11 +19,14 @@
     "nodemon": "^2.0.7"
   },
   "scripts": {
-    "start": "./start.sh",
-    "seed": "cd api-two && node seed.js && cd -"
+    "start": "./scripts/start.sh",
+    "seed": "cd api-two && node seed.js && cd -",
+    "test": "./scripts/test.sh"
   },
   "devDependencies": {
     "mocha": "^8.3.1",
-    "sinon": "^9.2.4"
+    "should": "^13.2.3",
+    "sinon": "^9.2.4",
+    "supertest": "^6.1.3"
   }
 }

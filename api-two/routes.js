@@ -48,6 +48,6 @@ exports.deleteReply = async (req, res) => {
     // logging the error message so we can trace logs for use, this should
     // ideally be substituted for an actually logger like winston
     console.log(error.message);
-    return respond(res, 'An error occurred while creating this reply.', 400)
+    return respond(res, 'An error occurred while deleting this reply.', 400)
   }
 };
