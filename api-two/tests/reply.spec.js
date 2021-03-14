@@ -113,7 +113,7 @@ describe('#replies', () => {
           response: 'Hello! I am sorry'
         });
 
-      response.status.should.equal(200);
+      response.status.should.equal(201);
       reply = response.body.data;
       response.body.status.should.equal('success');
       response.body.data.intent.should.equal(intent);

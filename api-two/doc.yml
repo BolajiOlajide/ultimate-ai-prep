@@ -1,0 +1,76 @@
+openapi: 3.0.0
+info:
+  title: API one
+  description: API one
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:9000'
+paths:
+  /reply:
+    post:
+      summary: Get response to visitor's message
+      tags:
+        - Replies
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                confidence:
+                  type: number
+                  example: 0.5
+                name:
+                  type: string
+                  example: Hello this is a chat message
+              required:
+                - confidence
+                - name
+      responses:
+        '200': # status code
+          description: OK
+        '400': # status code
+          description: Bad Request
+    delete:
+      summary: Delete a response for an intent
+      tags:
+        - Replies
+      parameters:
+      - name: "replyId"
+        in: path
+        description: ID of reply to be deleted
+        required: true
+      responses:
+        '204': # status code
+          description: NO CONTENT
+        '400': # status code
+          description: Bad Request
+        '404': # status code
+          description: NOT FOUND
+  /reply/create:
+    post:
+      summary: Create a response for an intent
+      tags:
+        - Replies
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                intent:
+                  type: string
+                  example: Greeting
+                response:
+                  type: string
+                  example: Hello this is a chat message
+              required:
+                - intent
+                - response
+      responses:
+        '201': # status code
+          description: CREATED
+        '400': # status code
+          description: Bad Request

@@ -8,7 +8,7 @@ exports.createReply = async (req, res) => {
     const reply = new Reply(req.body);
     await reply.save();
 
-    return respond(res, reply, 200);
+    return respond(res, reply, 201);
   } catch (error) {
     // logging the error message so we can trace logs for use, this should
     // ideally be substituted for an actually logger like winston

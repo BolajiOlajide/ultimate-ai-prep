@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  title: API one
+  description: API one
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:5000'
+paths:
+  /reply:
+    post:
+      summary: Get response to visitor's message
+      tags:
+        - Replies
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: Hello this is a chat message
+              required:
+                - message
+      responses:
+        '200': # status code
+          description: OK
+        '400': # status code
+          description: Bad Request
