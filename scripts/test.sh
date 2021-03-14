@@ -12,4 +12,5 @@ run_test_api_two() {
   cd -
 }
 
-run_test_api_one && run_test_api_two
+# run_test_api_one && run_test_api_two
+run_test_api_one
